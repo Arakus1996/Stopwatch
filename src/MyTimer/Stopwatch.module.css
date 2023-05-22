@@ -1,0 +1,208 @@
+
+.stopWatch {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.timer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    min-height: 210px;
+    min-width: 210px;
+    width: 100%;
+    height: 45%;
+    color: rgba(249, 145, 126, 0.853);
+    text-align: center;
+    border-radius: 15px;
+    background: linear-gradient(to bottom, #023441 20%, #001f27 90%);
+    box-shadow:2px 5px 15px 0 rgba(0,0,0,0.5);
+}
+
+.timer > h2 {
+    font-size: 2.5em;
+    font-weight: 400;
+    margin: 0;
+    flex-grow: 1;
+}
+.timer__time{
+    font-family: 'Graduate', cursive;
+    font-size: 3em;
+    flex-grow: 2;
+}
+.timer__btnBlock{
+    flex-grow: 1;
+}
+.btn{
+    min-height: 30px;
+    width: 20%;
+    height: 60%;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
+    margin: 0 5px 0 5px;
+    color: rgba(249, 145, 126, 0.853);
+    background-color:#014a5fd4;
+    transition: 0.7s;
+    font-family: 'Alumni Sans Pinstripe', sans-serif;
+    font-weight: 600;
+    font-size: 1em;
+    letter-spacing: 3px;
+}
+.btn:hover{
+    background-color: rgba(255, 213, 105, 0.83);
+    color:  #0000008f;
+}
+
+/* stopwatch animation  */
+
+.stopWatch__animation_pad{
+    position: relative;
+    width: 30%;
+    height: 30%;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 10px solid #014b5f7e;
+}
+.stopWatch__animation_pad::before{
+    content: "";
+    padding-top: 100%;
+    float: left;
+}
+.stopWatch__animation_arrow{
+    position: absolute;
+    width: 3px;
+    height: calc(100%/2);
+    left: calc(100%/2);
+    bottom: calc(100%/2);
+    background: rgba(249, 145, 126, 0.853);
+    transform-origin: 0 bottom;  
+}
+.stopWatch__animation_arrow_start{
+    animation: borderTurn 60s infinite steps(6000);
+    animation-play-state: running;  
+}
+.stopWatch__animation_arrow_pause{
+    animation: borderTurn 60s infinite steps(6000);
+    animation-play-state: paused;
+}
+
+
+@keyframes borderTurn {
+    from{
+        transform: rotate(-360deg);
+    }
+}
+
+/* lap table  */
+.lapPad{
+    justify-content: start;
+    font-size: 1.5em;
+    overflow-y: auto;
+    height: 45%;
+}
+
+.lapPad::-webkit-scrollbar {
+    width: 0;
+} 
+
+.lapPad > div{
+    padding-top: 5px;
+}
+.lapPad table{
+    width: 90%;
+    margin: 0 auto;
+    table-layout: fixed;
+}
+.lapPad table .lapPad__lapColumn{
+    width: 10%;
+}
+
+@media (min-width:1200px) {
+    .stopWatch{
+        font-size: 29px;
+        flex-direction: row;
+        min-height: 800px;
+    }
+    .stopWatch__animation_pad{
+        max-width: 270px;
+    }
+    .timer {
+        margin: 0 0 0 10px;
+        height: 65%;
+    }
+}
+
+@media (min-width:992px) and (max-width: 1199px) {
+    .stopWatch{
+        font-size: 25px;
+        flex-direction: row;
+        min-height: 550px;
+    }
+    .timer {
+        margin: 0 0 0 10px;
+        height: 65%;
+    }
+}
+
+@media (min-width:768px) and (max-width: 991px) {
+    .stopWatch {
+       flex-direction: row;
+       min-height: 460px;
+    }
+    .timer {
+        margin: 0 0 0 10px;
+        height: 65%;
+    }
+}
+@media (max-width: 767px) {
+    .stopWatch {
+        min-height: 670px;
+     }
+    .timer {
+        height: 55%;
+    }
+    .lapPad{
+        height: 35%;
+    }
+
+}
+@media (max-width:480px) {
+    .stopWatch{
+        font-size: 18px;
+    }
+    .btn{
+        height: 80%;
+    }
+    .timer {
+        height: 55%;
+    }
+    .lapPad{
+        height: 35%;
+    }
+
+}
+@media (max-width:330px) {
+    .stopWatch{
+        font-size: 12px;
+    }
+    .btn{
+        height: 80%;
+    }
+    .timer {
+        height: 65%;
+    }
+    .lapPad{
+        height: 25%;
+    }
+}
+
